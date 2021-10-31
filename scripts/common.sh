@@ -3,9 +3,7 @@
 # Variable Declaration
 
 KUBERNETES_VERSION="1.20.6-00"
-#export proxy="http://172.16.0.3:7890"
-#export http_proxy=$proxy
-#export https_proxy=$proxy
+
 # disable swap 
 sudo swapoff -a
 # keeps the swaf off during reboot
@@ -50,9 +48,9 @@ echo "Docker Runtime Configured Successfully"
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
-sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
-echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-get update -y
 

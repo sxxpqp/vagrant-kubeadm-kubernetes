@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
       master.vm.box = "bento/ubuntu-18.04"
       master.vm.hostname = "master-node"
       master.vm.network "private_network", ip: "10.0.0.10"
+      master.vm.disk :disk, size: "100GB", name: "extra_storage"
       master.vm.provider "virtualbox" do |vb|
           vb.memory = 4048
           vb.cpus = 2
@@ -24,6 +25,7 @@ Vagrant.configure("2") do |config|
       node.vm.box = "bento/ubuntu-18.04"
       node.vm.hostname = "worker-node0#{i}"
       node.vm.network "private_network", ip: "10.0.0.1#{i}"
+      node.vm.disk :disk, size: "100GB", name: "extra_storage"
       node.vm.provider "virtualbox" do |vb|
           vb.memory = 2048
           vb.cpus = 1
